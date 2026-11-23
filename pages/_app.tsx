@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<Head>
 				<link rel='shortcut icon' href='/logo_light.png' />
-				<title>Tanson Lee</title>
+				<title>Geoffrey Lee</title>
 			</Head>
 			<Component {...pageProps} />
 			<Analytics />

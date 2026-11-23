@@ -79,6 +79,7 @@ const EntryRow = ({ entry }: { entry: Entry }) => {
 					{entry.current && <span className={s.dot} role='img' aria-label='current' />}
 				</span>
 				<span className={s.desc}>{entry.description}</span>
+				<span className={s.location}>{entry.location}</span>
 				<span className={s.toggle} aria-hidden>
 					{open ? '−' : '+'}
 				</span>
@@ -118,10 +119,6 @@ const Home = () => (
 		</header>
 
 		<section className={s.section}>
-			<Heading level={2}>experience</Heading>
-			{jobs.map(e => (
-				<EntryRow key={e.name} entry={e} />
-			))}
 			<Heading level={3}>internships</Heading>
 			{internships.map(e => (
 				<EntryRow key={e.name} entry={e} />

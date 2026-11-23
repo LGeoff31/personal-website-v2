@@ -11,6 +11,7 @@ export interface Entry {
 	lightLogo?: string;
 	description: string;
 	date: string;
+	location: string;
 	details: string[];
 	current?: boolean;
 	intern?: boolean;
@@ -23,32 +24,24 @@ export interface Project {
 }
 
 export const profile = {
-	name: 'Tanson Lee',
-	bio: 'Software engineer at Citadel in New York City.',
+	name: 'Geoffrey Lee',
+	bio: 'Software engineering intern in New York City.',
 };
 
 export const links: Link[] = [
-	{ label: 'github', href: 'https://github.com/tansonlee' },
-	{ label: 'linkedin', href: 'https://www.linkedin.com/in/tansonlee/' },
-	{ label: 'email', href: 'mailto:leetanson@gmail.com' },
+	{ label: 'github', href: 'https://github.com/lgeoff31' },
+	{ label: 'linkedin', href: 'https://www.linkedin.com/in/lgeoff31/' },
+	{ label: 'email', href: 'mailto:geoffrey31415@gmail.com' },
 	{ label: 'resume', href: '/resume.pdf' },
 ];
 
 export const experience: Entry[] = [
 	{
-		name: 'Citadel',
-		logo: '/images/citadel_logo_on_dark.png',
-		lightLogo: '/images/citadel_logo_on_light.png',
-		description: 'Research Engineering, Equity Quantitative Research',
-		date: 'jul 2025–now',
-		current: true,
-		details: ['Building the compute and storage layer for research.'],
-	},
-	{
-		name: 'Meta',
-		logo: '/images/meta_logo.png',
-		description: 'Post-impressions Ads Infrastructure',
-		date: 'fall 2024',
+		name: 'Walleye Capital',
+		logo: '/images/walleye.png',
+		description: 'Quantitative Strategies',
+		date: 'Summer 2027',
+		location: 'New York, NY',
 		intern: true,
 		details: [
 			'Reliability platform that auto-generates E2E tests for revenue-critical ad events from production traces: 117 events and 9,761 tests protecting $100M+ in annual revenue.',
@@ -58,10 +51,11 @@ export const experience: Entry[] = [
 		],
 	},
 	{
-		name: 'Snowflake',
-		logo: '/images/snowflake_logo.png',
-		description: 'SQL Workload Optimization',
-		date: 'summer 2024',
+		name: 'Radar Labs',
+		logo: '/images/radar.png',
+		description: 'Geolocation Infrastructure',
+		date: 'Winter 2027',
+		location: 'New York, NY',
 		intern: true,
 		details: [
 			'Parallelized query plans for database clustering on 6.84% of tables: ~35% faster clustering and ~25% faster table scans.',
@@ -69,10 +63,11 @@ export const experience: Entry[] = [
 		],
 	},
 	{
-		name: 'Bloomberg',
-		logo: '/images/bloomberg_logo.jpeg',
-		description: 'Fast Pricing Infrastructure',
-		date: 'fall 2023',
+		name: 'Atoms',
+		logo: '/images/atoms.png',
+		description: 'Money Movement',
+		date: 'Summer 2026',
+		location: 'New York, NY',
 		intern: true,
 		details: [
 			'Distributed caching microservice handling 30,000+ writes/sec for asset pricing, reducing pricing errors by 95%.',
@@ -80,11 +75,11 @@ export const experience: Entry[] = [
 		],
 	},
 	{
-		name: 'Global Illumination',
-		logo: '/images/global_illumination_logo.png',
-		lightLogo: '/images/global_illumination_logo_on_light.png',
-		description: '(Acq. by OpenAI) web-based multiplayer voxel game',
-		date: 'winter 2023',
+		name: 'Biztrip AI',
+		logo: '/images/biztrip.png',
+		description: 'Agentic Systems',
+		date: 'Fall 2025',
+		location: 'San Francisco, CA',
 		intern: true,
 		details: [
 			'Worked on Biomes, a web-based, massively multiplayer voxel game.',
@@ -94,10 +89,11 @@ export const experience: Entry[] = [
 		],
 	},
 	{
-		name: 'Paper',
-		logo: '/images/paper_logo.png',
-		description: '(Acq. by Thirdweb) Payments infrastructure for Web3',
-		date: 'summer 2022',
+		name: 'Shopify',
+		logo: '/images/shopify.png',
+		description: 'Payments & Monetization',
+		date: 'Winter 2025',
+		location: 'Toronto, ON',
 		intern: true,
 		details: [
 			'One of four engineers building credit-card checkout for NFTs.',
@@ -107,10 +103,11 @@ export const experience: Entry[] = [
 		],
 	},
 	{
-		name: 'Dreamschools',
-		logo: '/images/dreamschools_logo.png',
-		description: 'EdTech SaaS for daycares and camps',
-		date: 'fall 2021',
+		name: 'RideCo',
+		logo: '/images/rideco.png',
+		description: 'Vehicle Tracking',
+		date: 'Summer 2024',
+		location: 'Waterloo, ON',
 		intern: true,
 		details: [
 			'Checkout features: subscriptions, gift cards, refunds, coupons, taxes, and receipts.',
@@ -125,6 +122,7 @@ export const education: Entry = {
 	logo: '/images/waterloo_logo.png',
 	description: 'BCS, Computer Science',
 	date: '2025',
+	location: 'Waterloo, ON',
 	details: [
 		'Major GPA 3.98 / 4.0.',
 		'Coursework in real-time programming, operating systems, networking, distributed systems, algorithms, and AI.',

@@ -78,7 +78,7 @@
 	margin: 24px 0 4px;
 }
 
-/* Rows: date (or project links) | logo + name | description | toggle */
+/* Rows: date (or project links) | logo + name | description | location | toggle */
 
 .entry {
 	border-top: 1px dashed var(--line);
@@ -86,7 +86,7 @@
 
 .row {
 	display: grid;
-	grid-template-columns: 128px 200px minmax(0, 1fr) 16px;
+	grid-template-columns: 128px 200px minmax(0, 1fr) 148px 16px;
 	align-items: center;
 	gap: 16px;
 	padding: 8px 0;
@@ -133,6 +133,11 @@ button.row {
 	color: var(--muted);
 }
 
+.location {
+	color: var(--faint);
+	white-space: nowrap;
+}
+
 .toggle {
 	color: var(--faint);
 	text-align: right;
@@ -152,7 +157,9 @@ button.row:hover .toggle,
 }
 
 button.row:hover .desc,
-.open .desc {
+.open .desc,
+button.row:hover .location,
+.open .location {
 	color: var(--fg);
 }
 
@@ -217,6 +224,13 @@ button.row:hover .desc,
 	.projectLinks {
 		grid-row: 1 / span 2;
 		white-space: normal;
+	}
+	button.row .date {
+		grid-row: 1 / span 3;
+	}
+	.location {
+		grid-column: 2;
+		grid-row: 3;
 	}
 	.projectLinks {
 		flex-direction: column;
