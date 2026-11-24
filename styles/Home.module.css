@@ -65,6 +65,10 @@
 	margin-top: 64px;
 }
 
+.section + .section {
+	margin-top: 32px;
+}
+
 .heading {
 	font-size: 14px;
 	font-weight: 500;

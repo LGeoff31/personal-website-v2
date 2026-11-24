@@ -25,7 +25,7 @@ export interface Project {
 
 export const profile = {
 	name: 'Geoffrey Lee',
-	bio: 'Software engineering intern in New York City.',
+	bio: 'software engineering student @ UWaterloo | software engineering intern in New York City.',
 };
 
 export const links: Link[] = [
@@ -40,79 +40,71 @@ export const experience: Entry[] = [
 		name: 'Walleye Capital',
 		logo: '/images/walleye.png',
 		description: 'Quantitative Strategies',
-		date: 'Summer 2027',
+		date: 'summer 2027',
 		location: 'New York, NY',
 		intern: true,
 		details: [
-			'Reliability platform that auto-generates E2E tests for revenue-critical ad events from production traces: 117 events and 9,761 tests protecting $100M+ in annual revenue.',
-			'Config-driven pipeline that alerts on data corruption, ingesting 75TB/day, with optimizations that cut its storage by 99.5%.',
-			'Monitoring and alerting for the core ad impressions service (170B+ daily events), reducing on-call load by 6 hours a week.',
-			'Proposed and landed a retry mechanism in the ad impression cache for fault tolerance against upstream outages, projected to save $11.8M per half.',
+			'Incoming software engineering intern developing quantitative strategies.',
 		],
 	},
 	{
 		name: 'Radar Labs',
 		logo: '/images/radar.png',
 		description: 'Geolocation Infrastructure',
-		date: 'Winter 2027',
+		date: 'winter 2027',
 		location: 'New York, NY',
 		intern: true,
 		details: [
-			'Parallelized query plans for database clustering on 6.84% of tables: ~35% faster clustering and ~25% faster table scans.',
-			'Reworked clustering file selection by consolidating clustering stages, cutting table scan costs ~30% for insert-heavy tables.',
+			'Incoming software engineering intern developing geolocation infrastructure.',
 		],
 	},
 	{
 		name: 'Atoms',
 		logo: '/images/atoms.png',
 		description: 'Money Movement',
-		date: 'Summer 2026',
+		date: 'summer 2026',
 		location: 'New York, NY',
 		intern: true,
 		details: [
-			'Distributed caching microservice handling 30,000+ writes/sec for asset pricing, reducing pricing errors by 95%.',
-			'Data-sharing system over gRPC that runs pricing calculations in parallel across servers, a 300% speedup.',
+			'Developed core payment infrastructure using Java, leveraging gRPC, Temporal workflows, and Kafka event streams, processing $500M in transaction volume.',
+			'Reduced payout times by 30x for stalled merchants via a checkpoint-jump optimization that skips over transaction-free gaps, restoring settlement for 200+ blocked merchants.',
+			'Built infrastructure for org-level payouts by creating a Temporal workflow that queries & aggregates monetary transactions into Stripe payout statements, with retry handling, auditing, tax reporting, and observability'
 		],
 	},
 	{
 		name: 'Biztrip AI',
 		logo: '/images/biztrip.png',
 		description: 'Agentic Systems',
-		date: 'Fall 2025',
+		date: 'fall 2025',
 		location: 'San Francisco, CA',
 		intern: true,
 		details: [
-			'Worked on Biomes, a web-based, massively multiplayer voxel game.',
-			'Extended the in-house physics engine with swimming, climbing, ladders, and ice.',
-			'Realistic water reflections written as high-performance OpenGL shaders.',
-			'Redesigned the NPC AI service around 3D Newtonian physics, adding fish and birds to the world.',
+			'Implemented a sliding-window min-heap algorithm with lazy deletion to identify cheaper flight rebooking options within a 3-hour window, improving matching from O(NK) to O(NlogK), cutting latency by 20ms',
+			'Developed a proactive AI travel agent that parses relevant calendar signals to orchestrate flight & hotel itineraries, saving 500h+ annually in corporate travel coordination'
 		],
 	},
 	{
 		name: 'Shopify',
 		logo: '/images/shopify.png',
 		description: 'Payments & Monetization',
-		date: 'Winter 2025',
+		date: 'winter 2025',
 		location: 'Toronto, ON',
 		intern: true,
 		details: [
-			'One of four engineers building credit-card checkout for NFTs.',
-			'Re-architected authentication around role-based access control, used by 85%+ of customers.',
-			'Auction system with Redis-cached chain reads (~2s → <100ms) and job queues for writes.',
-			'Localization infrastructure and French support for European customers.',
+			'Shipped a checkout autofill feature that pre-populates tokenized payment and address data, cutting ∼90 seconds off checkout times, lifting conversion rates by 4.8%; built using Rails and GraphQL',
+			'Ran A/B experiments on an added onboarding step highlighting subscription plans within a 4-step signup flow, boosting early-stage conversion by 4% (projected $8M+ in ARR); built using React and TypeScript'
 		],
 	},
 	{
 		name: 'RideCo',
 		logo: '/images/rideco.png',
 		description: 'Vehicle Tracking',
-		date: 'Summer 2024',
+		date: 'summer 2024',
 		location: 'Waterloo, ON',
 		intern: true,
 		details: [
-			'Checkout features: subscriptions, gift cards, refunds, coupons, taxes, and receipts.',
-			'Restructured data storage, cutting some page loads from 15s to under 500ms.',
-			'Onboarded two full-time developers and owned code review and deployments.',
+			'Engineered a real-time vehicle-tracking platform processing millions of daily GPS pings with optimized linear interpolation/debouncing algorithms, adopted by 100% of the dispatch operations team.',
+			'Shipped a ride-replay visualization tool to accelerate incident investigations, cutting $300K in costs across 850 incidents and saving 2,300h+ annually.',
 		],
 	},
 ];
@@ -120,37 +112,28 @@ export const experience: Entry[] = [
 export const education: Entry = {
 	name: 'Waterloo',
 	logo: '/images/waterloo_logo.png',
-	description: 'BCS, Computer Science',
-	date: '2025',
+	description: 'BE, Software Engineering',
+	date: '2028',
 	location: 'Waterloo, ON',
 	details: [
-		'Major GPA 3.98 / 4.0.',
-		'Coursework in real-time programming, operating systems, networking, distributed systems, algorithms, and AI.',
+		'Coursework in advanced algorithms, operating systems, databases, and statistics.',
 	],
 };
 
 export const projects: Project[] = [
 	{
+		name: 'Outreachyr',
+		description: 'Connecting students with university recruiters; 10K+ impressions',
+		links: [{ label: 'github', href: 'https://outreachyr.com/' }],
+	},
+	{
+		name: 'Bisect',
+		description: 'AI tool that isolates regressions and auto-generates patch PRs',
+		links: [{ label: 'github', href: 'https://github.com/LGeoff31/Bisect' }],
+	},
+	{
 		name: 'Echo Cache',
-		description: 'Distributed, in-memory cache built for performance.',
-		links: [{ label: 'github', href: 'https://github.com/tansonlee/echo-cache' }],
-	},
-	{
-		name: 'Ray Tracer',
-		description: 'Multi-threaded ray tracer: metal, glass, and matte.',
-		links: [{ label: 'github', href: 'https://github.com/tansonlee/ray-tracer' }],
-	},
-	{
-		name: 'Rusty Racket',
-		description: 'Racket interpreter in Rust: tokenizer, parser, evaluator.',
-		links: [{ label: 'github', href: 'https://github.com/tansonlee/rusty-racket' }],
-	},
-	{
-		name: 'PyScript',
-		description: 'Scripting language with a compiler, assembler, and VM.',
-		links: [
-			{ label: 'github', href: 'https://github.com/tansonlee/PyScript' },
-			{ label: 'demo', href: 'https://replit.com/@TansonL/PyScript#program.ps' },
-		],
+		description: 'A distributed in-memory cache in C++ with scalability and fault tolerance.',
+		links: [{ label: 'github', href: 'https://github.com/LGeoff31/Echo-Cache' }],
 	},
 ];

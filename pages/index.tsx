@@ -126,12 +126,12 @@ const Home = () => (
 		</section>
 
 		<section className={s.section}>
-			<Heading level={2}>education</Heading>
+			<Heading level={3}>education</Heading>
 			<EntryRow entry={education} />
 		</section>
 
 		<section className={s.section}>
-			<Heading level={2}>projects</Heading>
+			<Heading level={3}>projects</Heading>
 			{projects.map(p => (
 				<div key={p.name} className={`${s.entry} ${s.row}`}>
 					<span className={s.projectLinks}>
