@@ -1,5 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { education, Entry, experience, links, profile, projects } from '../lib/data';
+import Link from 'next/link';
+import { education, Entry, experience, links, posts, profile, projects } from '../lib/data';
 import s from '../styles/Home.module.css';
 
 type Theme = 'light' | 'dark';
@@ -144,6 +145,19 @@ const Home = () => (
 					<span className={s.name}>{p.name}</span>
 					<span className={s.desc}>{p.description}</span>
 				</div>
+			))}
+		</section>
+
+		<section className={s.section}>
+			<Heading level={3}>blog</Heading>
+			{posts.map(post => (
+				<Link key={post.slug} href={`/blog/${post.slug}`}>
+					<a className={`${s.entry} ${s.row} ${s.blogRow}`}>
+						<span className={s.date}>{post.date}</span>
+						<span className={s.name}>{post.title}</span>
+						<span className={s.desc}>{post.description}</span>
+					</a>
+				</Link>
 			))}
 		</section>
 

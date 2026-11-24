@@ -153,6 +153,45 @@ button.row {
 	white-space: nowrap;
 }
 
+.blogRow {
+	text-decoration: none;
+	color: inherit;
+}
+
+.blogRow .name {
+	white-space: normal;
+}
+
+.blogRow:hover .name {
+	color: var(--accent);
+}
+
+.blogRow:hover .desc {
+	color: var(--fg);
+}
+
+.back {
+	color: var(--muted);
+	text-decoration: none;
+}
+
+.back:hover {
+	color: var(--accent);
+}
+
+.postDate {
+	margin-top: 28px;
+}
+
+.article {
+	margin-top: 28px;
+	max-width: 68ch;
+}
+
+.article p + p {
+	margin-top: 16px;
+}
+
 button.row:hover .name,
 button.row:hover .toggle,
 .open .name,

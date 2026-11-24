@@ -23,6 +23,15 @@ export interface Project {
 	links: Link[];
 }
 
+// A writing. The page is /blog/<slug>.
+export interface Post {
+	slug: string;
+	title: string;
+	date: string;
+	description: string;
+	body: string[];
+}
+
 export const profile = {
 	name: 'Geoffrey Lee',
 	bio: 'software engineering student @ UWaterloo | software engineering intern in New York City.',
@@ -135,5 +144,56 @@ export const projects: Project[] = [
 		name: 'Echo Cache',
 		description: 'A distributed in-memory cache in C++ with scalability and fault tolerance.',
 		links: [{ label: 'github', href: 'https://github.com/LGeoff31/Echo-Cache' }],
+	},
+];
+
+export const posts: Post[] = [
+	{
+		slug: 'zetamac',
+		title: 'zetamac',
+		date: 'jan 2026',
+		description: 'mental math strategies and progression',
+		body: [
+			'The numbers 1 through n add up to n(n + 1) / 2. For n = 100 that is 5050, which is the story Gauss is usually given credit for.',
+			'Pair the ends. 1 with n, 2 with n − 1, and so on. Each pair sums to n + 1, and there are n / 2 such pairs. Multiply those and you get the formula.',
+			'The same idea works when n is odd. The middle number is left over, and it equals (n + 1) / 2, which is exactly one half-pair. So the count of pairs does not have to be a whole number for the formula to hold.',
+			'Replace this with whatever you actually want to write. The title, date, and description show up in the list on the homepage. Each string in body is one paragraph.',
+		],
+	},
+	{
+		slug: 'puzzles',
+		title: 'puzzles',
+		date: 'dec 2025',
+		description: 'favourite quant/brain teasers',
+		body: [
+			'The numbers 1 through n add up to n(n + 1) / 2. For n = 100 that is 5050, which is the story Gauss is usually given credit for.',
+			'Pair the ends. 1 with n, 2 with n − 1, and so on. Each pair sums to n + 1, and there are n / 2 such pairs. Multiply those and you get the formula.',
+			'The same idea works when n is odd. The middle number is left over, and it equals (n + 1) / 2, which is exactly one half-pair. So the count of pairs does not have to be a whole number for the formula to hold.',
+			'Replace this with whatever you actually want to write. The title, date, and description show up in the list on the homepage. Each string in body is one paragraph.',
+		],
+	},
+	{
+		slug: 'system-design',
+		title: 'system design',
+		date: 'nov 2025',
+		description: 'good to know concepts in system design',
+		body: [
+			'The numbers 1 through n add up to n(n + 1) / 2. For n = 100 that is 5050, which is the story Gauss is usually given credit for.',
+			'Pair the ends. 1 with n, 2 with n − 1, and so on. Each pair sums to n + 1, and there are n / 2 such pairs. Multiply those and you get the formula.',
+			'The same idea works when n is odd. The middle number is left over, and it equals (n + 1) / 2, which is exactly one half-pair. So the count of pairs does not have to be a whole number for the formula to hold.',
+			'Replace this with whatever you actually want to write. The title, date, and description show up in the list on the homepage. Each string in body is one paragraph.',
+		],
+	},
+	{
+		slug: 'quantitative-finance',
+		title: 'quantitative finance',
+		date: 'oct 2025',
+		description: 'intro to quant finance',
+		body: [
+			'The numbers 1 through n add up to n(n + 1) / 2. For n = 100 that is 5050, which is the story Gauss is usually given credit for.',
+			'Pair the ends. 1 with n, 2 with n − 1, and so on. Each pair sums to n + 1, and there are n / 2 such pairs. Multiply those and you get the formula.',
+			'The same idea works when n is odd. The middle number is left over, and it equals (n + 1) / 2, which is exactly one half-pair. So the count of pairs does not have to be a whole number for the formula to hold.',
+			'Replace this with whatever you actually want to write. The title, date, and description show up in the list on the homepage. Each string in body is one paragraph.',
+		],
 	},
 ];
