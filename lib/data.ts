@@ -34,12 +34,12 @@ export interface Post {
 
 export const profile = {
 	name: 'Geoffrey Lee',
-	bio: 'software engineering student @ UWaterloo | software engineering intern in New York City.',
+	bio: 'software engineering student [at] University of Waterloo.',
 };
 
 export const links: Link[] = [
-	{ label: 'github', href: 'https://github.com/lgeoff31' },
 	{ label: 'linkedin', href: 'https://www.linkedin.com/in/lgeoff31/' },
+	{ label: 'github', href: 'https://github.com/lgeoff31' },
 	{ label: 'email', href: 'mailto:geoffrey31415@gmail.com' },
 	{ label: 'resume', href: '/resume.pdf' },
 ];
@@ -77,7 +77,7 @@ export const experience: Entry[] = [
 		details: [
 			'Developed core payment infrastructure using Java, leveraging gRPC, Temporal workflows, and Kafka event streams, processing $500M in transaction volume.',
 			'Reduced payout times by 30x for stalled merchants via a checkpoint-jump optimization that skips over transaction-free gaps, restoring settlement for 200+ blocked merchants.',
-			'Built infrastructure for org-level payouts by creating a Temporal workflow that queries & aggregates monetary transactions into Stripe payout statements, with retry handling, auditing, tax reporting, and observability'
+			'Built infrastructure for org-level payouts by creating a Temporal workflow that queries & aggregates monetary transactions into Stripe payout statements, with retry handling, auditing, tax reporting, and observability.'
 		],
 	},
 	{
@@ -88,8 +88,8 @@ export const experience: Entry[] = [
 		location: 'San Francisco, CA',
 		intern: true,
 		details: [
-			'Implemented a sliding-window min-heap algorithm with lazy deletion to identify cheaper flight rebooking options within a 3-hour window, improving matching from O(NK) to O(NlogK), cutting latency by 20ms',
-			'Developed a proactive AI travel agent that parses relevant calendar signals to orchestrate flight & hotel itineraries, saving 500h+ annually in corporate travel coordination'
+			'Implemented a sliding-window min-heap algorithm with lazy deletion to identify cheaper flight rebooking options within a 3-hour window, improving matching from O(NK) to O(NlogK), cutting latency by 20ms.',
+			'Developed a proactive AI travel agent that parses relevant calendar signals to orchestrate flight & hotel itineraries, saving 500h+ annually in corporate travel coordination.'
 		],
 	},
 	{
@@ -100,8 +100,8 @@ export const experience: Entry[] = [
 		location: 'Toronto, ON',
 		intern: true,
 		details: [
-			'Shipped a checkout autofill feature that pre-populates tokenized payment and address data, cutting ∼90 seconds off checkout times, lifting conversion rates by 4.8%; built using Rails and GraphQL',
-			'Ran A/B experiments on an added onboarding step highlighting subscription plans within a 4-step signup flow, boosting early-stage conversion by 4% (projected $8M+ in ARR); built using React and TypeScript'
+			'Shipped a checkout autofill feature that pre-populates tokenized payment and address data, cutting ∼90 seconds off checkout times, lifting conversion rates by 4.8%; built using Rails and GraphQL.',
+			'Ran A/B experiments on an added onboarding step highlighting subscription plans within a 4-step signup flow, boosting early-stage conversion by 4% (projected $8M+ in ARR); built using React and TypeScript.'
 		],
 	},
 	{
@@ -154,10 +154,74 @@ export const posts: Post[] = [
 		date: 'jan 2026',
 		description: 'mental math strategies and progression',
 		body: [
-			'The numbers 1 through n add up to n(n + 1) / 2. For n = 100 that is 5050, which is the story Gauss is usually given credit for.',
-			'Pair the ends. 1 with n, 2 with n − 1, and so on. Each pair sums to n + 1, and there are n / 2 such pairs. Multiply those and you get the formula.',
-			'The same idea works when n is odd. The middle number is left over, and it equals (n + 1) / 2, which is exactly one half-pair. So the count of pairs does not have to be a whole number for the formula to hold.',
-			'Replace this with whatever you actually want to write. The title, date, and description show up in the list on the homepage. Each string in body is one paragraph.',
+			'Try it out: https://arithmetic.zetamac.com/ ',
+			'Solve as many mental math questions as possible in 120s. My first go, a score of 20. But over the years it rose to 102. https://www.youtube.com/watch?v=4NiuoB01hr8 \n',
+			'\n',
+			'I do it once a day, there\'s no excuse as it takes 2 minutes. I also think if there\'s a skill from school that\'ll be useful, it\'s mental math.',
+			'I wanted a more to competitive environment. I marketed a Zetamac competition on my linkedin, where 38 users tried to beat my score. One of which got 105!',
+			'![Top Mathletes leaderboard](/images/zetamac-leaderboard.png)',
+			'\n',
+			'# Tips and Advice',
+			'## Addition',
+			'This is the easiest type of problem in Zetamac. Primarily because our brains are so accustomed to them. The key strategy is to sum digits from left to right, which may seem counterintuitive to the typical way we were taught in school. Why? This approach allows you to start typing the answer immediately while simultaneously calculating for the next digit.',
+			'### The strategy',
+			'Start with the leftmost digits. Work your way right. Adjust for carry overs as needed.',
+			'### Example',
+			'For 38 + 55:',
+			'1. I know it should start with an 8 (3 + 5).',
+			'2. Then I see the ones digits sum to 13 (8 + 5).',
+			'3. So I quickly change my answer to 93.',
+			'## Subtraction',
+			'Subtraction is a bit trickier than addition but follows similar principles. For 2-digit subtraction problems, I use the same left-to-right strategy as addition, and being clever about carry overs.',
+			'### Strategy 1: direct subtraction',
+			'Work from left to right, handling carry overs as they come.',
+			'### Strategy 2: complement method',
+			'Instead of subtracting, think about how much you need to add to the smaller number to get the larger value.',
+			'### Example',
+			'For 83 − 69: I can see I just need to add 14 to turn 69 into 83. So 14 is my answer.',
+			'For 3-digit subtract 2-digit:',
+			'1. Determine what you need to add to the 2-digit number to make it 100.',
+			'2. Then determine from 100 how much you need to add to get the 3-digit number.',
+			'For 132 − 79:',
+			'1. I know I need 21 to make 79 become 100.',
+			'2. Then I add 21 + 32 = 53 to get my answer.',
+			'Eventually, your brain will subconsciously start to immediately skip these small steps and lead you straight to an answer.',
+			'## Multiplication',
+			'Most single-digit x double-digit multiplication problems can be solved by rounding the second number to a nice value, then subtracting or adding as needed.',
+			'### Strategy 1: rounding method',
+			'Round one number to make the calculation easier, then adjust.',
+			'For 9 × 74: round 9 to 10, so 10 × 74 = 740. Subtract 74: 740 − 74 = 666.',
+			'### Strategy 2: breaking down (my preference)',
+			'Break the problem into easier parts.',
+			'For 9 × 74: 9 × 70 = 630, and 9 × 4 = 36. Then 630 + 36 = 666.',
+			'This is sometimes faster since addition is less brain-intensive than subtraction. But you need to know your 12×12 times table flawlessly.',
+			'### The 11 trick',
+			'When multiplying by 11, add the digits of the second number and insert that value in the middle.',
+			'For 11 × 63: 6 + 3 = 9. Insert 9 in the middle: 693.',
+			'With a carry over, for 11 × 84: 8 + 4 = 12. Insert 2 in the middle, carry 1: 924.',
+			'Why this works: 11 × 63 = 10 × 63 + 63 = 630 + 63 = 693. The middle digit is the sum of the original digits because we\'re adding the number to its 10× version.',
+			'## Two-digit multiplication',
+			'When both numbers are two digits, the strategies become more complex but still manageable with practice.',
+			'### Strategy 1: breaking down by 10s',
+			'Break the first number into 10s and units, then multiply each part.',
+			'For 12 × 45: 10 × 45 = 450, and 2 × 45 = 90. Then 450 + 90 = 540.',
+			'### Memorization strategy',
+			'For smaller numbers (esp 12), memorize sequences of multiples: 10×, 20×, 30×, and so on. Also memorize the multiples of common numbers.',
+			'For 540 ÷ 12: I know instantly that 480 = 40 × 12. I need an additional 60, which is 12 × 5. So the answer is 45.',
+			'These strategies work because Zetamac ensures results are always integers, so these rules aren\'t generalizable to all values.',
+			'## Division shortcuts: the 11 and 9 tricks',
+			'Division in Zetamac can be made much faster with specific tricks for common divisors.',
+			'### The 11 division trick',
+			'When dividing by 11, the answer is either the two outer digits, or (due to carry over) the two outer digits with the leftmost digit reduced by 1.',
+			'374 ÷ 11 = 34. Take the first two digits, 37, and the last digit, 4. The result is 34.',
+			'974 ÷ 11 = 84. When the hundreds digit is at least the tens digit, subtract 1 from the hundreds digit. Since 9 > 7, the answer is 84, not 94.',
+			'### The 9 division trick',
+			'For 3-digit numbers divided by 9, the first digit is the first two digits divided by 9, rounded down. The second digit is 10 minus the last digit.',
+			'342 ÷ 9 = 38. First digit: 34 ÷ 9 is 3. Second digit: 10 − 2 = 8.',
+			'If you\'re lazy, the first digit is always either the first digit of the original or that + 1.',
+			'## Final remarks',
+			'There\'s absolutely no substitute for putting hours of practice in. You\'ll eventually see that the answer just comes to you even when you\'re not confident! You\'ll see how useful these skills are in day-to-day life. Have fun with it.',
+
 		],
 	},
 	{

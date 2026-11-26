@@ -44,7 +44,8 @@
 }
 
 .links a,
-.projectLinks a {
+.projectLinks a,
+.article a {
 	color: var(--fg);
 	text-decoration: none;
 }
@@ -55,7 +56,8 @@
 
 .theme:hover,
 .links a:hover,
-.projectLinks a:hover {
+.projectLinks a:hover,
+.article a:hover {
 	color: var(--accent);
 }
 
@@ -179,17 +181,58 @@ button.row {
 	color: var(--accent);
 }
 
+.post {
+	max-width: 68ch;
+}
+
 .postDate {
 	margin-top: 28px;
 }
 
 .article {
 	margin-top: 28px;
-	max-width: 68ch;
+}
+
+.article h2 {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: -0.03em;
+	margin-top: 40px;
+}
+
+.article h2.kicker {
+	font-size: 28px;
+	margin-top: 8px;
+}
+
+.article h3 {
+	font-size: 15px;
+	font-weight: 500;
+	margin-top: 28px;
+	color: var(--muted);
 }
 
 .article p + p {
 	margin-top: 16px;
+}
+
+.photo {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-top: 16px;
+	margin-bottom: 48px;
+}
+
+.video {
+	margin-top: 16px;
+	aspect-ratio: 16 / 9;
+}
+
+.video iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
 }
 
 button.row:hover .name,

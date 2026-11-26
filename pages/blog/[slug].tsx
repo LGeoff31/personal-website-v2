@@ -4,8 +4,78 @@ import Link from 'next/link';
 import { Post, posts } from '../../lib/data';
 import s from '../../styles/Home.module.css';
 
+const linkInText = /(https?:\/\/[^\s]+)/g;
+
+const youtubeId = (url: string) => {
+	try {
+		const parsed = new URL(url);
+		const host = parsed.hostname.replace(/^www\./, '');
+		if (host === 'youtu.be') return parsed.pathname.slice(1).split('/')[0] || null;
+		if (host === 'youtube.com' || host === 'm.youtube.com') {
+			if (parsed.pathname === '/watch') return parsed.searchParams.get('v');
+			const match = parsed.pathname.match(/^\/(?:embed|shorts)\/([^/?]+)/);
+			if (match) return match[1];
+		}
+	} catch {
+		return null;
+	}
+	return null;
+};
+
+const imageInText = /^!\[([^\]]*)\]\((\/[^)]+)\)$/;
+
+const headingInText = /^(#{1,3}) (.+)$/;
+
+const Paragraph = ({ text }: { text: string }) => {
+	const trimmed = text.trim();
+	if (!trimmed) return null;
+
+	const heading = trimmed.match(headingInText);
+	if (heading) {
+		const level = heading[1].length;
+		const Tag = level === 3 ? 'h3' : 'h2';
+		return <Tag className={level === 1 ? s.kicker : undefined}>{heading[2]}</Tag>;
+	}
+
+	const image = trimmed.match(imageInText);
+	if (image) {
+		return <img src={image[2]} alt={image[1]} className={s.photo} />;
+	}
+
+	const videos: string[] = [];
+	const parts = text.split(linkInText).flatMap((part, i) => {
+		if (!/^https?:\/\//.test(part)) return part ? [part] : [];
+		const id = youtubeId(part);
+		if (id) {
+			videos.push(id);
+			return [];
+		}
+		return [
+			<a key={i} href={part} target='_blank' rel='noreferrer'>
+				{part}
+			</a>,
+		];
+	});
+
+	return (
+		<>
+			{parts.length > 0 && <p>{parts}</p>}
+			{videos.map(id => (
+				<div key={id} className={s.video}>
+					<iframe
+						src={`https://www.youtube.com/embed/${id}`}
+						title='YouTube video'
+						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+						allowFullScreen
+					/>
+				</div>
+			))}
+		</>
+	);
+};
+
 const PostPage = ({ post }: { post: Post }) => (
-	<main className={s.main}>
+	<main className={`${s.main} ${s.post}`}>
 		<Head>
 			<title>{post.title} — Geoffrey Lee</title>
 		</Head>
@@ -19,8 +89,8 @@ const PostPage = ({ post }: { post: Post }) => (
 		<p className={`${s.date} ${s.postDate}`}>{post.date}</p>
 		<h1 className={s.title}>{post.title}</h1>
 		<article className={s.article}>
-			{post.body.map(paragraph => (
-				<p key={paragraph}>{paragraph}</p>
+			{post.body.map((paragraph, i) => (
+				<Paragraph key={i} text={paragraph} />
 			))}
 		</article>
 	</main>
