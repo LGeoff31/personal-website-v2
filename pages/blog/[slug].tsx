@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Post, posts } from '../../lib/data';
@@ -43,7 +44,7 @@ const Paragraph = ({ text }: { text: string }) => {
 	}
 
 	const videos: string[] = [];
-	const parts = text.split(linkInText).flatMap((part, i) => {
+	const parts = text.split(linkInText).flatMap((part, i): ReactNode[] => {
 		if (!/^https?:\/\//.test(part)) return part ? [part] : [];
 		const id = youtubeId(part);
 		if (id) {
