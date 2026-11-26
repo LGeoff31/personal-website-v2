@@ -150,7 +150,7 @@ export const projects: Project[] = [
 export const posts: Post[] = [
 	{
 		slug: 'zetamac',
-		title: 'zetamac',
+		title: 'Zetamac',
 		date: 'jan 2026',
 		description: 'mental math strategies and progression',
 		body: [
@@ -226,7 +226,7 @@ export const posts: Post[] = [
 	},
 	{
 		slug: 'puzzles',
-		title: 'puzzles',
+		title: 'Puzzles',
 		date: 'dec 2025',
 		description: 'favourite quant/brain teasers',
 		body: [
@@ -262,7 +262,7 @@ export const posts: Post[] = [
 	},
 	{
 		slug: 'system-design',
-		title: 'system design',
+		title: 'System Design',
 		date: 'nov 2025',
 		description: 'good to know concepts in system design',
 		body: [
@@ -382,18 +382,6 @@ export const posts: Post[] = [
 			'In system design interviews, the typical usage is HTTP over TCP.',
 			'Websockets and server-side events (SSE, uni-directional) come up when dealing with real-time updates.',
 			'However, typically, HTTP with polling could work as an alternative to websockets in most cases.',
-		],
-	},
-	{
-		slug: 'quantitative-finance',
-		title: 'quantitative finance',
-		date: 'oct 2025',
-		description: 'intro to quant finance',
-		body: [
-			'The numbers 1 through n add up to n(n + 1) / 2. For n = 100 that is 5050, which is the story Gauss is usually given credit for.',
-			'Pair the ends. 1 with n, 2 with n − 1, and so on. Each pair sums to n + 1, and there are n / 2 such pairs. Multiply those and you get the formula.',
-			'The same idea works when n is odd. The middle number is left over, and it equals (n + 1) / 2, which is exactly one half-pair. So the count of pairs does not have to be a whole number for the formula to hold.',
-			'Replace this with whatever you actually want to write. The title, date, and description show up in the list on the homepage. Each string in body is one paragraph.',
 		],
 	},
 ];
