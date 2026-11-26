@@ -193,6 +193,11 @@ button.row {
 	margin-top: 28px;
 }
 
+.article sup {
+	font-size: 0.65em;
+	line-height: 0;
+}
+
 .article h2 {
 	font-size: 20px;
 	font-weight: 600;

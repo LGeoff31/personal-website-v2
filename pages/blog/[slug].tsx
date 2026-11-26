@@ -45,7 +45,12 @@ const Paragraph = ({ text }: { text: string }) => {
 
 	const videos: string[] = [];
 	const parts = text.split(linkInText).flatMap((part, i): ReactNode[] => {
-		if (!/^https?:\/\//.test(part)) return part ? [part] : [];
+		if (!/^https?:\/\//.test(part)) {
+			if (!part) return [];
+			return part.split(/\^\{([^}]+)\}/).map((bit, j) =>
+				j % 2 === 1 ? <sup key={`${i}-${j}`}>{bit}</sup> : bit,
+			);
+		}
 		const id = youtubeId(part);
 		if (id) {
 			videos.push(id);
