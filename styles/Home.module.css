@@ -221,6 +221,15 @@ button.row {
 	margin-top: 16px;
 }
 
+.article ul {
+	margin: 12px 0 0;
+	padding-left: 1.2em;
+}
+
+.article li + li {
+	margin-top: 6px;
+}
+
 .photo {
 	display: block;
 	width: 100%;

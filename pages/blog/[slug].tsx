@@ -27,6 +27,21 @@ const imageInText = /^!\[([^\]]*)\]\((\/[^)]+)\)$/;
 
 const headingInText = /^(#{1,3}) (.+)$/;
 
+const inline = (text: string, keyPrefix: string): ReactNode[] =>
+	text.split(linkInText).flatMap((part, i): ReactNode[] => {
+		if (!/^https?:\/\//.test(part)) {
+			if (!part) return [];
+			return part.split(/\^\{([^}]+)\}/).map((bit, j) =>
+				j % 2 === 1 ? <sup key={`${keyPrefix}-${i}-${j}`}>{bit}</sup> : bit,
+			);
+		}
+		return [
+			<a key={`${keyPrefix}-${i}`} href={part} target='_blank' rel='noreferrer'>
+				{part}
+			</a>,
+		];
+	});
+
 const Paragraph = ({ text }: { text: string }) => {
 	const trimmed = text.trim();
 	if (!trimmed) return null;
@@ -45,12 +60,7 @@ const Paragraph = ({ text }: { text: string }) => {
 
 	const videos: string[] = [];
 	const parts = text.split(linkInText).flatMap((part, i): ReactNode[] => {
-		if (!/^https?:\/\//.test(part)) {
-			if (!part) return [];
-			return part.split(/\^\{([^}]+)\}/).map((bit, j) =>
-				j % 2 === 1 ? <sup key={`${i}-${j}`}>{bit}</sup> : bit,
-			);
-		}
+		if (!/^https?:\/\//.test(part)) return inline(part, String(i));
 		const id = youtubeId(part);
 		if (id) {
 			videos.push(id);
@@ -80,6 +90,25 @@ const Paragraph = ({ text }: { text: string }) => {
 	);
 };
 
+const bulletLine = /^- (.+)$/;
+
+type Block = { kind: 'text'; text: string } | { kind: 'list'; items: string[] };
+
+const blocks = (body: string[]): Block[] => {
+	const out: Block[] = [];
+	for (const line of body) {
+		const item = line.trim().match(bulletLine);
+		if (item) {
+			const last = out[out.length - 1];
+			if (last?.kind === 'list') last.items.push(item[1]);
+			else out.push({ kind: 'list', items: [item[1]] });
+			continue;
+		}
+		out.push({ kind: 'text', text: line });
+	}
+	return out;
+};
+
 const PostPage = ({ post }: { post: Post }) => (
 	<main className={`${s.main} ${s.post}`}>
 		<Head>
@@ -95,9 +124,17 @@ const PostPage = ({ post }: { post: Post }) => (
 		<p className={`${s.date} ${s.postDate}`}>{post.date}</p>
 		<h1 className={s.title}>{post.title}</h1>
 		<article className={s.article}>
-			{post.body.map((paragraph, i) => (
-				<Paragraph key={i} text={paragraph} />
-			))}
+			{blocks(post.body).map((block, i) =>
+				block.kind === 'list' ? (
+					<ul key={i}>
+						{block.items.map((item, j) => (
+							<li key={j}>{inline(item, `${i}-${j}`)}</li>
+						))}
+					</ul>
+				) : (
+					<Paragraph key={i} text={block.text} />
+				),
+			)}
 		</article>
 	</main>
 );
